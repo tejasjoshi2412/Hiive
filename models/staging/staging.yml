@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: stg_transactions_mock_data
+    description: Table contains infromation relkated to the current status and other dimesntional fieatures of a trasnaction.
+    columns:
+      - name: transaction_id
+        description: Primary Key, Trasnaction ID associated with every transaction.
+        tests:
+          - not_null
+          - unique
+  
+  - name: stg_transaction_termination_reasons
+    description: The table contains information about the transactions and transctions termination reason.
+    columns:
+      - name: transaction_id
+        description: Primary Key, ID associated with every transaction.
+        tests:
+          - not_null
+          - unique
+
+      - name: bid_id
+        description: The unique identifier of the accepted bid associated with the transaction.
+        tests:
+          - not_null
+          - unique
+
+      - name: company_id
+        description: The unique identifier of the issuing company of the shares. 
+        tests:
+          - not_null      
+  
+  - name: stg_transaction_transitions_mock_data
+    description: The table contains information about the transition of a transaction as a log book about its progression during various stages.
+    columns:
+      - name: transaction_transitions_mock_data_id
+        description: Primary Key, ID associated with every transaction_transition_mock_data.
+        tests:
+          - not_null
+          - unique
+
+      - name: transaction_id
+        description: Foreign Key, ID associated with every transaction.
+        tests:
+          - not_null
