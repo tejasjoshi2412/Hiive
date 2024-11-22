@@ -20,5 +20,4 @@ with transactions as (
 
 select
   *
-from 
- transactions
+from transactions

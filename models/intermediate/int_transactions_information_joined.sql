@@ -68,5 +68,4 @@ with transition_mock_data as (
 
 select 
   * 
-from 
-  joined  
+from joined  
