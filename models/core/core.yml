@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: dim_transactions
+    description: Table contains information related to the current status and other dimensional features of a transaction.
+    columns:
+      - name: transaction_id
+        description: Primary Key, Transaction ID associated with every transaction.
+        tests:
+          - not_null
+          - unique
+
+      - name: bid_id
+        description: The unique identifier of the accepted bid associated with the transaction.
+        tests:
+          - not_null
+          - unique
+
+      - name: company_id
+        description: The unique identifier of the issuing company of the shares. 
+        tests:
+          - not_null 
+  
+  - name: dim_transaction_termination_reasons
+    description: The table contains information about the transactions and transctions termination reason.
+    columns:
+      - name: transaction_id
+        description: Primary Key, ID associated with every transaction.
+        tests:
+          - not_null
+          - unique  
+  
+  - name: fct_transactions
+    description: The fact table contains information about the transition of a transaction and its progression.
+    columns:
+      - name: transaction_id
+        description: Foreign Key, ID associated with every transaction.
+        tests:
+          - unique
+          - not_null

@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: transactions
+    database: dbt_hiive
+    schema: prod_seed_data
+    tables:
+      - name: transactions_mockdata
+        description: Contains information about transactions and details related to them such as current state, buyer info, seller info, gross proceeds, number of shares, price per share etc.
+      
+      - name: transaction_termination_reasons
+        description: The reasons for the transaction termination.
+
+      - name: transaction_transitions_mock_data
+        description: Contains info about the transitions of a transaction between various stages.
